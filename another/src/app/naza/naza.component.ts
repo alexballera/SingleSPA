@@ -5,16 +5,14 @@ import { dataSaver } from 'shared';
 @Component({
   selector: 'app-naza',
   templateUrl: './naza.component.html',
-  styleUrls: ['./naza.component.scss']
+  styleUrls: ['./naza.component.scss'],
 })
 export class NazaComponent implements OnInit {
-
-  constructor(/*private sharedService: NgSharedService*/) { }
+  constructor(/*private sharedService: NgSharedService*/) {}
 
   ngOnInit(): void {
     let value = ((dataSaver.data as any).a ?? 0) + 1;
     (dataSaver.data as any).a = value;
-    console.log("valueElement", value);
+    console.log('valueElement', value);
   }
-
 }
