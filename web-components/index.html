@@ -18,6 +18,17 @@
 
     <my-paragraph></my-paragraph>
 
+    <my-paragraph>
+      <span slot="my-text">¡Tengamos un texto diferente!</span>
+    </my-paragraph>
+
+    <my-paragraph>
+      <ul slot="my-text">
+        <li>¡Tengamos un texto diferente!</li>
+        <li>¡En una lista!</li>
+      </ul>
+    </my-paragraph>
+
     <template id="my-paragraph">
       <style>
         p {
@@ -26,7 +37,7 @@
           padding: 5px;
         }
       </style>
-      <p>Mi párrafo</p>
+      <p><slot name="my-text">Mi texto predeterminado</slot></p>
     </template>
 
     <script>
@@ -39,13 +50,13 @@
         extends: "p",
       });
 
-      // Create a class for the element
+      // Declaración de un custom element que hereda de HTMLElement
       class PopUpInfo extends HTMLElement {
         constructor() {
-          // Always call super first in constructor
+          // Siempre debe llamarse primero al constructor padre
           super();
 
-          // Create a shadow root
+          // Se crea el shadow root
           const shadow = this.attachShadow({ mode: "open" });
 
           // Create wrapper
